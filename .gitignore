@@ -1,0 +1,80 @@
+# ==========================================================
+#  UHFReader18 学生考勤系统 —— Git 忽略规则
+#  作用：让 GitHub 上只保留「源代码 + 必要资源」，
+#        排除打包产物、缓存、以及含真实学生隐私的本地数据。
+# ==========================================================
+
+# ---------- PyInstaller 打包产物 ----------
+build/
+dist/
+*.spec
+*.exe
+*.manifest
+*.egg-info/
+.eggs/
+# PyInstaller 分析中间文件
+*.toc
+*.pkg
+# 打包时生成的动态库副本
+*.pyd
+
+# ---------- Python 缓存 / 字节码 ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# ---------- 虚拟环境 / 环境配置 ----------
+.venv/
+venv/
+env/
+ENV/
+.python-version
+.env
+.env.*
+*.env
+.envrc
+pip-log.txt
+
+# ---------- IDE / 编辑器 ----------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.bak
+
+# ---------- 本地数据库与运行数据（含真实学生信息，禁止上传）----------
+# 主库：运行时自动创建，里面是真实学生名单和考勤记录
+attendance.db
+attendance.db-journal
+attendance.db-wal
+attendance.db-shm
+*.db
+*.sqlite
+*.sqlite3
+# 数据库备份
+*.bak_*
+*.db.bak_*
+# 旧版名单文件 / 导出的考勤结果
+/students.txt
+/考勤记录.csv
+/attendance_export*.csv
+
+# ---------- 日志与临时文件 ----------
+*.log
+*.tmp
+*.temp
+
+# ---------- 系统垃圾文件 ----------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+.DS_Store
+
+# ---------- 打包 / 调试期临时脚本 ----------
+/_diag.py
+/_*_test.py
